@@ -11,4 +11,11 @@ main:
    li $v0, 4
    la $a0, input # This block prints the users input
    syscall
+   
+   move $s0, $a0
+   
+loop:
   
+  lb $a0, 0($s0)
+  addi $s0, $s0, 1
+  beq $a0, 32, loop
